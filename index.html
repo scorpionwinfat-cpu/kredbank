@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Брокерские услуги и банковские гарантии | KredBanK</title>
+    <style>
+        /* Сброс стандартных стилей */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.5;
+            /* Светлый текст на тёмном фоне для черно‑белой версии */
+            color: #dcdcdc;
+            background-color: #0b0b0b;
+        }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        header {
+            background-color: #0b0b0b;
+            color: #dcdcdc;
+            padding: 20px 10vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #333;
+        }
+        header .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .logo-icon {
+            /* Отображаем логотип в шапке с сохранением пропорций */
+            height: 45px;
+            width: auto;
+        }
+        .logo-text {
+            display: none;
+        }
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        header nav li {
+            font-size: 0.9rem;
+        }
+        header nav li a {
+            transition: color 0.2s;
+        }
+        header nav li a:hover {
+            color: #ffffff;
+        }
+        .hero {
+            position: relative;
+            /* Черно‑белый фон с цифровым узором */
+            background-image: url('matrix-bw-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            padding: 150px 10vw;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 0;
+        }
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+        /* Заголовок с глитч‑эффектом */
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            color: #ffffff;
+        }
+        .glitch {
+            position: relative;
+        }
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .glitch::before {
+            /* Первый слой глитча серого цвета */
+            color: #777;
+            clip-path: inset(0 0 60% 0);
+            animation: glitchTop 3s infinite linear;
+        }
+        .glitch::after {
+            /* Второй слой глитча чуть светлее */
+            color: #aaa;
+            clip-path: inset(60% 0 0 0);
+            animation: glitchBottom 3s infinite linear;
+        }
+        @keyframes glitchTop {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(-2px, -2px); }
+            40% { transform: translate(2px, 2px); }
+            60% { transform: translate(-2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0, 0); }
+        }
+        @keyframes glitchBottom {
+            0% { transform: translate(0, 0); }
+            20% { transform: translate(2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, -2px); }
+            80% { transform: translate(-2px, 2px); }
+            100% { transform: translate(0, 0); }
+        }
+        .hero p {
+            /* Стиль описания в блоке hero переопределяется для tagline */
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+        .hero-tagline {
+            /* Типографика с эффектом печатающей машинки */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 0.15em solid #ffffff;
+            animation: typing 6s steps(40, end) 1 forwards, blink-caret 0.8s step-end infinite;
+            color: #dcdcdc;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #ffffff; }
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0b0b0b;
+            background-color: #ffffff;
+            border-radius: 5px;
+            border: 2px solid #ffffff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: #ffffff;
+        }
+        .section {
+            padding: 60px 10vw;
+            background-color: #0d0d0d;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s ease-out;
+        }
+        .section:nth-of-type(even) {
+            background-color: #0a0a0a;
+        }
+
+        .section.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #ffffff;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        .feature-item {
+            flex: 1 1 250px;
+            background-color: #101423;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            text-align: center;
+        }
+        .feature-item img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            /* Наши иконки уже белые на прозрачном фоне, поэтому фильтры не применяем */
+            filter: none;
+        }
+        .feature-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .feature-item p {
+            font-size: 0.9rem;
+            /* Светлый текст для лучшей читаемости на тёмном фоне */
+            color: #a5b8d6;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        .step-item {
+            background-color: #101423;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            padding: 25px;
+            text-align: center;
+        }
+        /* Светлый цвет текста в шагах */
+        .step-item p {
+            color: #a5b8d6;
+        }
+        .step-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .step-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .testimonials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .testimonial {
+            flex: 1 1 280px;
+            background-color: #101423;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #999;
+        }
+        .testimonial span {
+            font-weight: 700;
+            color: #ffffff;
+        }
+        /* Форма обратной связи */
+        .form-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #101423;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            /* Применяем фильтр к вложенной форме Битрикс, чтобы приглушить фирменные цвета */
+            filter: grayscale(1);
+        }
+        .form-wrapper h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #dcdcdc;
+            text-align: center;
+        }
+        .form-wrapper form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .form-wrapper label {
+            font-size: 0.9rem;
+            color: #e6e9f0;
+        }
+        .form-wrapper input, .form-wrapper textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #404a70;
+            border-radius: 5px;
+            background-color: #0B0D17;
+            color: #e6e9f0;
+        }
+        .form-wrapper textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-wrapper button {
+            padding: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            background-color: #ffffff;
+            color: #0b0b0b;
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .form-wrapper button:hover {
+            background-color: transparent;
+            color: #ffffff;
+            box-shadow: none;
+        }
+        footer {
+            background-color: #0d0d0d;
+            color: #dcdcdc;
+            padding: 40px 10vw;
+            text-align: center;
+        }
+        footer p {
+            font-size: 0.9rem;
+        }
+        @media(max-width: 768px) {
+            header nav ul {
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+/* Список супер‑офера в хедере */
+.offer-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 30px 0;
+    padding: 0;
+    list-style: none;
+}
+.offer-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #fff;
+}
+.offer-item img {
+    width: 24px;
+    height: 24px;
+}
+/* Секция достижений */
+.stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+        .stat-item {
+            flex: 1 1 200px;
+            background-color: #101423;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        .stat-item p {
+            color: #a5b8d6;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <!-- Вставляем согласованный логотип вместо текстового написания -->
+            <img src="cred-logo-bw.png" alt="KredBanK Logo" class="logo-icon">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#advantages">Преимущества</a></li>
+                <li><a href="#steps">Как мы работаем</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <!-- Используем атрибут data-text для эффекта глитча -->
+        <h1 class="glitch" data-text="AI‑брокерские решения и банковские гарантии">AI‑брокерские решения и банковские гарантии</h1>
+        <!-- Слоган с эффектом печатающей машинки -->
+        <p class="hero-tagline">Одобряем за 15 минут • Ставка от 1,3% • Без визита в банк</p>
+        <a href="#contact" class="btn">Оставить заявку</a>
+    </section>
+    <section id="advantages" class="section">
+        <h2>Наши преимущества</h2>
+        <div class="features">
+            <div class="feature-item">
+                <img src="speed-icon-transparent.png" alt="Иконка скорость">
+                <h3>Быстрое оформление</h3>
+                <p>Вы получаете банковскую гарантию в кратчайшие сроки без лишних бюрократических процедур.</p>
+            </div>
+            <div class="feature-item">
+                <img src="approach-icon-transparent.png" alt="Иконка индивидуальный подход">
+                <h3>Индивидуальный подход</h3>
+                <p>Каждому клиенту назначается персональный менеджер, который помогает подобрать оптимальные условия.</p>
+            </div>
+            <div class="feature-item">
+                <img src="reliability-icon-transparent.png" alt="Иконка надежность">
+                <h3>Надежность</h3>
+                <p>Сотрудничаем только с крупнейшими банками, гарантируя высокое качество и безопасность ваших сделок.</p>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="section">
+        <h2>Наши услуги</h2>
+        <div class="features">
+            <div class="feature-item">
+                <img src="guarantee-icon-transparent.png" alt="Банковские гарантии">
+                <h3>Банковские гарантии</h3>
+                <p>Помогаем получить банковскую гарантию для участия в тендерах и выполнения государственных контрактов.</p>
+            </div>
+            <div class="feature-item">
+                <img src="accreditive-icon-transparent.png" alt="Аккредитивы">
+                <h3>Аккредитивы</h3>
+                <p>Организуем безопасные расчёты по внешнеэкономическим контрактам через аккредитивные инструменты.</p>
+            </div>
+            <div class="feature-item">
+                <img src="brokerage-icon-transparent.png" alt="Брокерские услуги">
+                <h3>Брокерские услуги</h3>
+                <p>Предоставляем полный комплекс брокерских услуг на финансовых рынках, обеспечивая выгодные условия.</p>
+            </div>
+        </div>
+    </section>
+    <section id="steps" class="section">
+        <h2>Как мы работаем</h2>
+        <div class="steps">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <h4>Оставьте заявку</h4>
+                <p>Свяжитесь с нами по телефону или заполните форму на сайте, чтобы обсудить ваши потребности.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <h4>Получите консультацию</h4>
+                <p>Наш специалист подберёт оптимальные условия и подготовит необходимые документы.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <h4>Подписание договора</h4>
+                <p>Мы заключаем договор и запрашиваем гарантию или брокерскую услугу в банке.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <h4>Получите гарантию</h4>
+                <p>Вы получаете готовую банковскую гарантию и можете реализовывать свои бизнес-проекты.</p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <h2>Что говорят клиенты</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>«КредБанк помог нам быстро оформить банковскую гарантию для участия в государственном тендере. Работа была выполнена профессионально и в срок.»</p>
+                <span>— ООО «Альфа»</span>
+            </div>
+            <div class="testimonial">
+                <p>«Очень благодарны за индивидуальный подход и качественные брокерские услуги. Помогли подобрать наиболее выгодные условия на рынке.»</p>
+                <span>— ИП Петрова Н. В.</span>
+            </div>
+            <div class="testimonial">
+                <p>«Сотрудничаем уже несколько лет. Надежный партнёр, который всегда находит лучшие решения для нашего бизнеса.»</p>
+                <span>— ООО «СтройИнвест»</span>
+            </div>
+        </div>
+    </section>
+<section id="stats" class="section">
+    <h2>Наши достижения</h2>
+    <div class="stats-grid">
+        <div class="stat-item">
+            <span class="stat-number">10+ млрд ₽</span>
+            <p>Выдано гарантий</p>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">100+ банков</span>
+            <p>Партнёров</p>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number">2000+</span>
+            <p>Довольных клиентов</p>
+        </div>
+    </div>
+</section>
+
+
+    <section id="contact" class="section">
+        <h2>Оставьте заявку</h2>
+        <div class="form-wrapper">
+    <h3>Мы свяжемся с вами в ближайшее время</h3>
+    <!-- Вставка CRM-формы Битрикс24 -->
+    <script data-b24-form="inline/24/fvjcta" data-skip-moving="true">
+    (function(w,d,u){
+    var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/180000|0);
+    var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+    })(window,document,'https://cdn-ru.bitrix24.ru/b1992549/crm/form/loader_24.js');
+    </script>
+</div>
+    </section>
+    <footer>
+        <p>© 2025 KredBanK. Все права защищены. | Телефон: +7 (924) 290‑44‑44 | Email: info@kredbank.com</p>
+    </footer>
+    <!-- Анимации появления секций -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+    <!-- Если у вас есть JavaScript-код для подключения виджетов Bitrix или аналитики, добавьте его ниже -->
+</body>
+</html>
