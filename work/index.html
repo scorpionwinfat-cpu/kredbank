@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="KredBank Work — рабочая схема банковской мультиплатформы: источники, банки, маршруты и подбор.">
+<meta name="robots" content="noindex,nofollow"><title>KredBank Work — банки, знания, маршруты</title>
+<link rel="stylesheet" href="work.css">
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="../"><span class="brandmark">K</span><span>KredBank<span class="brand-sub">WORKSPACE</span></span></a>
+  <div class="workspace-label">БАНКОВСКАЯ МУЛЬТИПЛАТФОРМА</div>
+  <nav aria-label="Разделы"><a href="#overview" class="active"><span>◈</span>Рабочий процесс</a><a href="#banks"><span>▦</span>Банки и маршруты</a><a href="#selection"><span>⌕</span>Подбор из лида</a><a href="#news"><span>≋</span>Новости и изменения</a><a href="#roadmap"><span>↗</span>План развития</a></nav>
+  <div class="sidebar-note"><span class="pulse"></span>Основа BankMind<br><small>Единая модель банка,<br>условий и доказательств</small></div>
+  <a class="source-code" href="https://github.com/scorpionwinfat-cpu/kredbank" target="_blank" rel="noopener">Репозиторий проекта ↗</a>
+</aside>
+<div class="workspace">
+<header class="topbar"><div><span class="breadcrumb">KredBank</span><span class="slash">/</span>Рабочая схема</div><div class="top-actions"><span class="preview-tag">Визуализация · 15 октября 2026</span><label class="role-control">Посмотреть как <select id="role" aria-label="Роль в демонстрации"><option value="manager">Менеджер</option><option value="agent">Агент</option><option value="client">Клиент</option></select></label></div></header>
+<main>
+<section id="overview" class="intro">
+  <div class="eyebrow"><span></span>ОТ ЗНАНИЯ О БАНКЕ — К ПОДХОДЯЩЕМУ ПРЕДЛОЖЕНИЮ</div>
+  <div class="intro-row"><div><h1>Одна заявка.<br><span>Все доступные маршруты.</span></h1><p class="lead" id="role-description">Рабочее место менеджера: видеть условия каждого банка и площадки, проверять ограничения и объяснять выбор по заявке.</p></div><a class="primary-button" href="#selection">Разобрать заголовок лида <span>↗</span></a></div>
+  <div class="notice"><span class="notice-icon">i</span><div>Перед вами визуализация текущего процесса и будущей платформы. Публичные данные и состояние разработки указаны отдельно. Живые банковские расчёты, регистрация, подача заявок и выплаты здесь ещё не подключены.</div></div>
+</section>
+<section class="metrics" aria-label="Проверенный масштаб">
+  <article><div class="metric-caption">Действующие банки России <span class="dot green"></span></div><strong>300</strong><small>ЦБ · отдельно 59 действующих НКО</small></article>
+  <article><div class="metric-caption">Текущее покрытие условий <span class="dot amber"></span></div><strong>7 <em>банков</em></strong><small>25 профилей · SimpleFinance · DEV</small></article>
+  <article><div class="metric-caption">Корпоративный Telegram <span class="dot green"></span></div><strong>6 <em>каналов</em></strong><small>Первый набор · полный охват проверяется</small></article>
+  <article><div class="metric-caption">Источники в одном процессе</div><div class="metric-pills"><span>Почта</span><span>Telegram</span><span>ЦБ / Минфин</span></div><small>Сбор → проверка → версия условий</small></article>
+</section>
+<section class="panel process-panel">
+  <div class="section-head"><div><div class="eyebrow muted">КАК УСТРОЕН BANKMIND</div><h2>Информация превращается в решение</h2></div><span class="status-tag outline">Текущая стадия: помощник подбора</span></div>
+  <div class="process" role="tablist" aria-label="Этапы процесса">
+    <button class="process-node selected" role="tab" aria-selected="true" data-step="sources"><span class="step-number">01</span><b>Источники</b><small>Почта, каналы, реестры</small><span class="step-state">Частично подключены</span></button><div class="connector">→</div>
+    <button class="process-node" role="tab" aria-selected="false" data-step="knowledge"><span class="step-number">02</span><b>Знания о банке</b><small>Условия, источники, версии</small><span class="step-state">Основа работает</span></button><div class="connector">→</div>
+    <button class="process-node" role="tab" aria-selected="false" data-step="matching"><span class="step-number">03</span><b>Подбор</b><small>Заявка, ограничения, маршрут</small><span class="step-state">Первое применение</span></button><div class="connector">→</div>
+    <button class="process-node" role="tab" aria-selected="false" data-step="offers"><span class="step-number">04</span><b>Предложения</b><small>Цена, срок, вознаграждение</small><span class="step-state planned">Следующая веха</span></button><div class="connector">→</div>
+    <button class="process-node" role="tab" aria-selected="false" data-step="outcomes"><span class="step-number">05</span><b>Результат</b><small>Выдача и обратная связь</small><span class="step-state planned">Целевой процесс</span></button>
+  </div>
+  <div class="process-detail" id="process-detail" role="tabpanel" aria-live="polite"></div>
+</section>
+<section id="banks" class="two-column">
+  <div class="panel bank-panel"><div class="section-head"><div><div class="eyebrow muted">ОБЪЕКТ УПРАВЛЕНИЯ — БАНК</div><h2>Один банк. Несколько площадок.</h2></div><span class="status-tag">Модель карточки</span></div><p class="section-copy">Условия зависят от продукта, клиента и маршрута. Предложение Теледока не подменяет предложение ВБЦ или YoFin.</p>
+  <div class="search"><span>⌕</span><input id="bank-search" placeholder="Найти банк или площадку" aria-label="Поиск банка"></div>
+  <div class="bank-list" id="bank-list"></div>
+  <div class="inline-note">Карточки ниже показывают устройство продукта и публичные новости. Полный каталог действующих банков и рабочие предложения будут подключены к серверным данным.</div></div>
+  <article class="panel bank-card" id="bank-card" aria-live="polite"></article>
+</section>
+<section id="selection" class="panel selection-panel">
+  <div class="section-head"><div><div class="eyebrow muted">ПОВТОРНО ВВОДИТЬ ДАННЫЕ НЕ НУЖНО</div><h2>Заявка начинается с лида</h2></div><span class="status-tag outline">Разбор в браузере · без отправки</span></div>
+  <div class="selection-grid"><div><label class="field-label" for="lead-title">Заголовок лида</label><textarea id="lead-title" rows="3" spellcheck="false">ООО ПРИМЕР / БГИК / 44-ФЗ / 2000000р. / (Мск+0) / 360 дн</textarea><button id="parse-lead" class="primary-button">Разобрать заявку <span>→</span></button><p class="inline-note">Пример условный. Введённый текст обрабатывается только в вашем браузере и никуда не передаётся. Часовой пояс не определяет регион регистрации.</p></div><div id="parsed-lead" class="parsed-result" aria-live="polite"></div></div>
+  <div class="comparison-header"><h3>Как будут сравниваться предложения</h3><span>Один банк → отдельная строка на каждый маршрут</span></div>
+  <div class="table-wrap"><table><thead><tr><th>Маршрут</th><th>Цена клиенту</th><th class="agent-economics">КВ агента</th><th>Что проверяем</th><th>Текущий статус</th></tr></thead><tbody><tr><td><b>Теледок</b></td><td>По расчёту площадки</td><td class="agent-economics">По договору / акции</td><td>Регион, опыт, документы</td><td><span class="pending">Расчёт не подключён</span></td></tr><tr><td><b>ВБЦ</b></td><td>По расчёту площадки</td><td class="agent-economics">Отдельно от тарифа</td><td>Лимит и доступность маршрута</td><td><span class="pending">Расчёт не подключён</span></td></tr><tr><td><b>YoFin</b></td><td>По расчёту + применимые скидки</td><td class="agent-economics">По условиям маршрута</td><td>Правила акции и баланс YFC</td><td><span class="pending">Расчёт не подключён</span></td></tr><tr><td><b>Прямой банк</b></td><td>Индивидуальное предложение</td><td class="agent-economics">По прямому договору</td><td>Действующий договор и доступ</td><td><span class="pending">Подключается по банку</span></td></tr></tbody></table></div>
+</section>
+<section id="news" class="panel">
+  <div class="section-head"><div><div class="eyebrow muted">НОВОСТЬ ИМЕЕТ БАНК И КОНТЕКСТ</div><h2>Изменения попадают в нужные карточки</h2></div><span class="status-tag outline">Схема будущей синхронизации Bitrix</span></div>
+  <div class="news-grid"><article class="news-item"><div class="news-meta">14 октября 2026 <span>Публичный источник</span></div><h3>YoFin: скидка за YFC с примером по Левобережному</h3><p>Платформа описывает возможность снизить тариф до 30% за счёт YFC. Применимость и баланс проверяются по конкретной заявке.</p><div class="entity-links"><button data-bank="lev">Банк: Левобережный ↗</button><a href="https://t.me/yofinpro/2138" target="_blank" rel="noopener">Площадка: YoFin ↗</a></div><div class="news-footer">Одна новость → две связанные карточки <span>На проверку</span></div></article><article class="news-item"><div class="news-meta">12 октября 2026 <span>Публичный источник</span></div><h3>На YoFin появился маршрут в НБС</h3><p>Заявлены все регионы и лимит клиента до 500 млн ₽. Ставка «от 3,5%» требует уточнения базы расчёта и применимости.</p><div class="entity-links"><button data-bank="nbs">Банк: НБС ↗</button><a href="https://t.me/yofinpro/2136" target="_blank" rel="noopener">Площадка: YoFin ↗</a></div><div class="news-footer">История источника сохраняется <span>На проверку</span></div></article></div>
+  <div class="automation-strip"><span>Источник</span><i>→</i><span>Проверка и устранение дублей</span><i>→</i><span>Банк + площадка</span><i>→</i><span>Обновление карточки и ленты</span></div>
+</section>
+<section id="roadmap" class="panel">
+  <div class="section-head"><div><div class="eyebrow muted">ОТ ПОМОЩНИКА К МУЛЬТИПЛАТФОРМЕ</div><h2>Что есть сейчас и куда идём</h2></div></div>
+  <div class="milestones"><article><span class="milestone-number done">01</span><div><h3>Основа знаний</h3><p>Единые банки, продукты, маршруты и доказательства. История сохранена; действующие банки выделяются отдельно.</p><b class="green-text">Работает в DEV</b></div></article><article><span class="milestone-number current">02</span><div><h3>Ежедневное рабочее место</h3><p>Все релевантные источники, карточки банков, новости и подбор из существующего лида.</p><b class="amber-text">Текущий приоритет</b></div></article><article><span class="milestone-number">03</span><div><h3>Реальные предложения и выдача</h3><p>Сравнение банков и площадок по одной заявке. Документы, статусы и результат через модуль выдачи.</p><b>Следующая веха</b></div></article><article><span class="milestone-number">04</span><div><h3>Платформа для всех участников</h3><p>Регистрация и права менеджера, агента и клиента. Личный кабинет, вознаграждение и подтверждённые выплаты.</p><b>Целевое развитие</b></div></article></div>
+</section>
+<footer><div><b>KredBank Work</b><span>Информация → выбор → предложение → результат</span></div><p>Снимок процесса на 15.10.2026. Регуляторный источник: <a href="https://www.cbr.ru/banking_sector/credit/FullCoList/" target="_blank" rel="noopener">список кредитных организаций ЦБ</a>. Предложения и выплаты в этой визуализации не исполняются.</p></footer>
+</main></div>
+<script src="work.js"></script>
+</body></html>
